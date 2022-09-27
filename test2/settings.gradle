@@ -1,3 +1,5 @@
 rootProject.name = 'test2'
 include 'rs-demo'
+include 'rs-demo-db'
+include 'rs-demo-dto'
 

@@ -1,0 +1,17 @@
+applicationDefaultJvmArgs = [
+//        "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5000",
+        "-Dfile.encoding=utf-8",
+        "-server",
+        "-Xmx512m",
+        "-Xms512m",
+        "-Xmn256m",
+        "-Xss512k",
+        "-XX:+DisableExplicitGC",
+        "-XX:+UseConcMarkSweepGC",
+        "-XX:+CMSParallelRemarkEnabled",
+        "-XX:LargePageSizeInBytes=128m",
+        "-XX:+UseFastAccessorMethods",
+        "-XX:+UseCMSInitiatingOccupancyOnly",
+        "-XX:CMSInitiatingOccupancyFraction=70"
+        //"-Duser.timezone=GMT+8"
+]

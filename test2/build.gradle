@@ -1,12 +1,28 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.7.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'org.springframework.boot' version '2.3.7.RELEASE' apply false
+//    id 'io.spring.dependency-management' version '1.0.10.RELEASE' apply false
+//    id 'org.asciidoctor.jvm.convert' version '3.1.0' apply false
+//    id 'org.asciidoctor.jvm.pdf' version '3.1.0' apply false
+    id 'application'
     id 'java'
+    id "com.google.cloud.tools.jib" version "2.1.0" apply false
+}
+ext {
+    configuration = [
+            //javaVersion = JavaVersion.VERSION_11
+            javaVersion = "1.9"
+    ]
 }
 
-group = 'com.example'
-version = '1.0.0-SNAPSHOT'
-sourceCompatibility = '1.8'
+allprojects {
+    group = 'com.example'
+    version = '1.0.0-SNAPSHOT'
+    sourceCompatibility = '1.8'
+}
+description = "test2"
+//jdk版本
+sourceCompatibility = "${javaVersion}"
+targetCompatibility = "${javaVersion}"
 
 configurations {
     developmentOnly
@@ -23,16 +39,16 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+//    implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'mysql:mysql-connector-java'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+//    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+//        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+//    }
 }
 
 test {

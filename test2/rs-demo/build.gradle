@@ -1,9 +1,26 @@
 plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+//    id 'org.asciidoctor.jvm.convert'
+    id 'application'
     id 'java'
+    id "com.google.cloud.tools.jib"
+}
+ext {
+    group 'com.lianxi.cb'
+    version '1.0.0-SNAPSHOT'
+    queryDslVersion = '4.2.1'
+    springBootVersion = '2.3.7.RELEASE'
+    javaxVersion = '1.3.2'
+    cssVersion = 'yf-1.0.40'
+    mapstructVersion = '1.4.1.Final'
+    lombokVersion = '1.18.12'
+    cssVersion = 'yf-1.0.40'
 }
 
-group 'com.lianxi.cb'
-version '1.0.0-SNAPSHOT'
+
+//gradle 文件引用
+//apply from: file("src/main/resources/build-jvm.gradle")
 
 sourceCompatibility = 1.8
 
@@ -12,5 +29,48 @@ repositories {
 }
 
 dependencies {
+    // 依赖libs目录下所有以.jar结尾的文件
+//    implementation fileTree(dir: 'lib', includes: ['*.jar'])
+//    implementation(
+////            project(":rs-demo-dto"),
+//            project(":rs-demo-db"),
+////            "chain.css:css-all:${cssVersion}",
+////            'chain.cloud.dfs:dfs-client:wh0.0.1-SNAPSHOT',
+////            'chain:utils-append:1.0.1',
+////            'net.logstash.logback:logstash-logback-encoder:6.1',
+////            'io.projectreactor:reactor-core',
+////            'org.apache.commons:commons-pool2',
+////            "org.mapstruct:mapstruct:${mapstructVersion}",
+////            'chain.cloud.wechat:wechat-client:v1.0.12',
+//            'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.0'
+//    )
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation(
+            project(":rs-demo-db"),
+//            platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"),
+//            'org.springframework.data:spring-data-mongodb',
+//            "javax.annotation:javax.annotation-api:${javaxVersion}",
+//            "com.querydsl:querydsl-mongodb:${queryDslVersion}",
+//            "com.querydsl:querydsl-apt:${queryDslVersion}:morphia",
+//            'io.micrometer:micrometer-registry-prometheus:1.3.20',
+//            'org.springframework.boot:spring-boot-starter-data-mongodb',
+            'org.springframework.boot:spring-boot-starter-webflux',
+//            'org.springframework.boot:spring-boot-starter-data-redis',
+//            'org.springframework.boot:spring-boot-starter-validation',
+//            'org.springframework.boot:spring-boot-starter-actuator',
+//            'org.springframework.boot:spring-boot-starter-aop',
+//          "org.springframework.cloud:spring-cloud-starter-openfeign",
+//            "org.springframework.cloud:spring-cloud-starter-consul-discovery",
+//            'org.springframework.boot:spring-boot-starter-cache',
+    )
+//    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+//    annotationProcessor(
+//            'org.projectlombok:lombok',
+//            "com.querydsl:querydsl-apt:$queryDslVersion:morphia",
+//            'org.springframework.data:spring-data-mongodb',
+//            "javax.annotation:javax.annotation-api:$javaxVersion",
+//            'org.springframework.boot:spring-boot-configuration-processor'
+//    )
+
+//    implementation('com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.0')
 }
